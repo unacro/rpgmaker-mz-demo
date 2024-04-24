@@ -1,5 +1,8 @@
 #!/bin/bash
-# move this file to .git/hooks/pre-commit
 
-echo "executing pre-commit"
+# copy this file to location `.git/hooks/pre-commit`
+# or use **admin cmd** to run `mklink .\.git\hooks\pre-commit [Absolute path of current project]\.githooks\pre-commit`
+
+echo "Executing pre-commit...(Make sure that you are at root of the project)"
 node ./.githooks/json_formatter.mjs unminify data
+git add .
