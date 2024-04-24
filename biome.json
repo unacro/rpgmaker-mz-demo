@@ -1,0 +1,10 @@
+{
+	"linter": {
+		"enabled": true
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": ["js/**/*.js"],
+		"indentWidth": 2
+	}
+}
