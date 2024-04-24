@@ -1,0 +1,5 @@
+#!/bin/bash
+# move this file to .git/hooks/pre-commit
+
+echo "executing pre-commit"
+node ./.githooks/json_formatter.mjs unminify data
