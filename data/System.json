@@ -347,7 +347,7 @@
   ],
   "startMapId": 1,
   "startX": 8,
-  "startY": 6,
+  "startY": 7,
   "switches": [
     "",
     "",
@@ -563,7 +563,7 @@
     "",
     ""
   ],
-  "versionId": 82720323,
+  "versionId": 38011557,
   "victoryMe": {
     "name": "Victory1",
     "pan": 0,
