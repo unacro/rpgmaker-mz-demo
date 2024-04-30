@@ -1,11 +1,11 @@
 //=============================================================================
-// KNSMZ_Save.js
+// KNSMZ_Save_Modified.js
 //=============================================================================
 /*:
  * @target MZ
  * @plugindesc ver.1.0.2 Add screenshots on Save/Load scene.
  * @author Kanji the Grass
- * @url https://kanjinokus...argss3.hatenablog.com/
+ * @url https://kanjinokusargss3.hatenablog.com/
  *
  * @param MaxSaveFile
  * @text Number of save files
@@ -216,7 +216,7 @@
  * @target MZ
  * @plugindesc ver.1.0.2 为存档读档场景增加照片
  * @author Kanji the Grass
- * @url https://kanjinokus...argss3.hatenablog.com/
+ * @url https://kanjinokusargss3.hatenablog.com/
  *
  * @param MaxSaveFile
  * @text 最大存档数量
@@ -237,14 +237,14 @@
  * @type string
  * @parent Vocab
  * @text 描述金钱的术语
- * @desc 会显示在存档界面的金钱栏位上
+ * @desc 会显示在读取存档界面的金钱栏位上
  * @default 金钱
  *
  * @param VocabPlace
  * @type string
  * @parent Vocab
  * @text 描述当前位置的术语
- * @desc 会显示在存档界面的当前位置栏位上
+ * @desc 会显示在读取存档界面的当前位置栏位上
  * @default 当前位置
  *
  * @param Screenshot
@@ -305,7 +305,7 @@
  * @default true
  *
  * @param WhenUseImage
- * @text 启用截图时相关设置
+ * @text 启用截图时详细设置
  * @parent Screenshot
  *
  * @param ImageSaveSize
@@ -344,7 +344,7 @@
  * @default false
  *
  * @param Windows
- * @text 窗口设置
+ * @text 窗口相关
  *
  * @param HelpWindow
  * @parent Windows
@@ -431,7 +431,7 @@
  * @target MZ
  * @plugindesc ver.1.0.2 セーブ/ロード画面にスクリーンショットを追加します。
  * @author 莞爾の草
- * @url https://kanjinokus...argss3.hatenablog.com/
+ * @url https://kanjinokusargss3.hatenablog.com/
  *
  * @param MaxSaveFile
  * @text セーブファイル最大数
@@ -572,7 +572,7 @@
  * @help
  * このプラグインはマテコモ青ライセンスの下で提供されます。
  * 利用規約はこちら。
- * https://kanjinokus...argss3.hatenablog.com/entry/2020/08/12/184854
+ * https://kanjinokusargss3.hatenablog.com/entry/2020/08/12/184854
  *
  * セーブ時に保存されたスクリーンショットの画像が
  * セーブ画面でぐるぐる回ります。
@@ -645,7 +645,7 @@
 
 const KNSMZ_Save = {};
 (() => {
-	const pluginParameters = PluginManager.parameters("KNSMZ_Save");
+	const pluginParameters = PluginManager.parameters("KNSMZ_Save_Modified");
 	const pluginConfig = {};
 	pluginConfig.MaxSaveFile = Number(pluginParameters.MaxSaveFile || 25);
 
@@ -694,12 +694,12 @@ const KNSMZ_Save = {};
 	//======================================================
 	DataManager.maxSavefiles = () => KNSMZ_Save.config.MaxSaveFile;
 
+	const _DataManagerMakeSavefileInfo = DataManager.makeSavefileInfo;
 	/**
 	 * 重写生成存档文件方法
 	 * @param  {...any} args 原方法参数
 	 * @returns 生成存档文件的相关信息
 	 */
-	const _DataManagerMakeSavefileInfo = DataManager.makeSavefileInfo;
 	DataManager.makeSavefileInfo = function (...args) {
 		const savefileInfo = _DataManagerMakeSavefileInfo.apply(this, ...args);
 		const bitmap = this.makeScreenshot(); // todo 改成了手动截图
