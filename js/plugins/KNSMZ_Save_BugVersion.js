@@ -6,69 +6,69 @@
  * @plugindesc 截图式存档场景
  * @author Kanji the Grass
  * @url https://kanjinokusargss3.hatenablog.com/
- * 
+ *
  * @param MaxSaveFile
  * @text 保存文件数
  * @type number
  * @min 1
  * @default 10
  * @desc This number includes auto save
- * 
+ *
  * @param InfoHorzLineColor
  * @text 信息窗口上的边框颜色
  * @type string
  * @default gray
- * 
+ *
  * @param Vocab
  * @text 关于
- * 
+ *
  * @param VocabPrice
  * @type string
  * @parent Vocab
  * @text 钱
  * @default 金钱
- * 
+ *
  * @param VocabPlace
  * @type string
  * @parent Vocab
  * @text 当前位置
  * @default 当前位置
- * 
+ *
  * @param Screenshot
  * @text 截图
- * 
+ *
  * @param ImageSize
  * @text 用于显示的图像尺寸
  * @desc Images of save file will be expanded to this size.
  * @type struct<Surface>
  * @parent Screenshot
  * @default {"width":"280","height":"220"}
- * 
+ *
  * @param ImagePivot
  * @text 图像枢轴
  * @type struct<Point>
  * @parent Screenshot
  * @default {"x":"408","y":"224"}
- * 
+ *
  * @param RadiusSize
  * @text 图像的移动半径
  * @type struct<Surface>
  * @parent Screenshot
  * @default {"width":"560","height":"80"}
- * 
+ *
  * @param ImageBorderColor
  * @text 图像的边框颜色
  * @type string
  * @parent Screenshot
  * @default black
- * 
+ *
  * @param ArrowImage
  * @parent Screenshot
  * @text 箭头平视显示器
  * @type file
  * @dir img/system
  * @default KnsSave_HUD
- * 
+ *
  * @param ImageExists
  * @parent Screenshot
  * @text 文件存在时的图像
@@ -76,7 +76,7 @@
  * @dir img/system
  * @default KnsSave_HasData
  * @desc Used when file exists but screenshot does not.
- * 
+ *
  * @param NoImageExists
  * @parent Screenshot
  * @text 文件不存在时的图像
@@ -84,36 +84,36 @@
  * @dir img/system
  * @default KnsSave_NoData
  * @desc Used when file does not exist.
- * 
+ *
  * @param UseScreenshot
  * @parent Screenshot
  * @text 使用截图？
  * @type boolean
  * @default true
- * 
+ *
  * @param WhenUseImage
  * @text 使用屏幕截图时
  * @parent Screenshot
- * 
+ *
  * @param ImageSaveSize
  * @text 屏幕截图的实际大小
  * @desc Screenshots will be saved in this size, and expanded when displayed.
  * @type struct<Surface>
  * @parent WhenUseImage
  * @default {"width":"128","height":"96"}
- * 
+ *
  * @param ImageType
  * @parent WhenUseImage
  * @text 图像扩展名（PNG/JPEG）
  * @type select
  * @default jpeg
- * 
+ *
  * @option .PNG
  * @value png
- * 
+ *
  * @option .JPEG
  * @value jpeg
- * 
+ *
  * @param JpegQuality
  * @parent WhenUseImage
  * @text JPEG 质量(1-100)
@@ -122,46 +122,46 @@
  * @default 50
  * @min 1
  * @max 100
- * 
+ *
  * @param SetMonochrome
  * @parent WhenUseImage
  * @text 设置单色？
  * @desc Setting monochrome makes the size reduced, but this is not so effective.
  * @type boolean
  * @default false
- * 
+ *
  * @param Windows
  * @text 关于视窗
- * 
+ *
  * @param HelpWindow
  * @parent Windows
  * @type struct<Window>
  * @default {"point":"{\"x\":\"0\",\"y\":\"0\"}","surface":"{\"width\":\"660\",\"height\":\"72\"}","windowType":"0"}
- * 
+ *
  * @param InfoWindow
  * @parent Windows
  * @type struct<Window>
  * @default {"point":"{\"x\":\"0\",\"y\":\"432\"}","surface":"{\"width\":\"816\",\"height\":\"192\"}","windowType":"0"}
- * 
+ *
  * @help
  * This plug-in is published under MTCM Blue Licence.
  * https://en.materialcommons.org/mtcm-b-summary
- * 
-* * 提供两张图像作为名为 KnsSave_HasData 和
+ *
+ * * 提供两张图像作为名为 KnsSave_HasData 和
  * KnsSave_NoData包括字体“Anton”，并已发布
  * 在“开放字体许可证”下。
  * 如果您想在不编辑的情况下使用它们，
  * 请查看以下许可证条款。
  * https://fonts.google.com/specimen/Anton
- * 
+ *
  * *Change Log
  * ver.1.0.0(2022/02/19)
  * - Published
- * 
+ *
  * ver.1.0.1(2022/02/20)
  * - Fixed a miss specifying of JPEG Quality.
  * - Added an English description.
- * 
+ *
  * ver.1.0.2(2022/02/20)
  * - Optimized the code.
  * - Changed the display order of windows and sprites(Z-axis).
@@ -170,16 +170,16 @@
  * @param point
  * @text 点
  * @type struct<Point>
- * 
+ *
  * @param surface
  * @text 大小
  * @type struct<Surface>
- * 
+ *
  * @param windowType
  * @text 背景类型
  * @type select
  * @default 1
- * 
+ *
  * @option Window
  * @value 0
  * @option Dark
@@ -192,7 +192,7 @@
  * @text X-axis
  * @type number
  * @default 0
- * 
+ *
  * @param y
  * @text Y-axis
  * @type number
@@ -204,7 +204,7 @@
  * @type number
  * @default 1
  * @min 1
- * 
+ *
  * @param height
  * @text Height
  * @type number
@@ -217,69 +217,69 @@
  * @plugindesc ver.1.0.2 セーブ/ロード画面にスクリーンショットを追加します。
  * @author 莞爾の草
  * @url https://kanjinokusargss3.hatenablog.com/
- * 
+ *
  * @param MaxSaveFile
  * @text セーブファイル最大数
  * @type number
  * @min 1
  * @default 25
  * @desc オートセーブ分も含まれます。
- * 
+ *
  * @param InfoHorzLineColor
  * @text セーブ詳細ウィンドウ横線の色
  * @type string
  * @default gray
- * 
+ *
  * @param Vocab
  * @text 用語集
- * 
+ *
  * @param VocabPrice
  * @type string
  * @parent Vocab
  * @text 所持金
  * @default 所持金
- * 
+ *
  * @param VocabPlace
  * @type string
  * @parent Vocab
  * @text 現在地
  * @default 現在地
- * 
+ *
  * @param Screenshot
  * @text スクショ関連
- * 
+ *
  * @param ImageSize
  * @text 画像表示サイズ
  * @desc セーブイメージを表示する際使用する画像のサイズをこのサイズに補正します。
  * @type struct<Surface>
  * @parent Screenshot
  * @default {"width":"280","height":"220"}
- * 
+ *
  * @param ImagePivot
  * @text 画像の円運動中心
  * @type struct<Point>
  * @parent Screenshot
  * @default {"x":"408","y":"224"}
- * 
+ *
  * @param RadiusSize
  * @text 画像の円運動サイズ
  * @type struct<Surface>
  * @parent Screenshot
  * @default {"width":"560","height":"80"}
- * 
+ *
  * @param ImageBorderColor
  * @text 画像の縁取り色
  * @type string
  * @parent Screenshot
  * @default black
- * 
+ *
  * @param ArrowImage
  * @parent Screenshot
  * @text 矢印画像
  * @type file
  * @dir img/system
  * @default KnsSave_HUD
- * 
+ *
  * @param ImageExists
  * @parent Screenshot
  * @text データがある場合の画像
@@ -287,7 +287,7 @@
  * @dir img/system
  * @default KnsSave_HasData
  * @desc セーブファイルは存在してもスクショがない場合に使われます。
- * 
+ *
  * @param NoImageExists
  * @parent Screenshot
  * @text データがない場合の画像
@@ -295,36 +295,36 @@
  * @dir img/system
  * @default KnsSave_NoData
  * @desc セーブファイルが存在しないときスクショの代わりに使われます。
- * 
+ *
  * @param UseScreenshot
  * @parent Screenshot
  * @text スクショを保存するか
  * @type boolean
  * @default true
- * 
+ *
  * @param WhenUseImage
  * @text スクショを保存する場合の設定
  * @parent Screenshot
- * 
+ *
  * @param ImageSaveSize
  * @text スクショ実寸サイズ
  * @desc セーブデータ上に保存するスクショのサイズです。表示する際は「画像表示サイズ」まで拡大縮小されます。
  * @type struct<Surface>
  * @parent WhenUseImage
  * @default {"width":"128","height":"96"}
- * 
+ *
  * @param ImageType
  * @parent WhenUseImage
  * @text 画像拡張子(PNG/JPEG)
  * @type select
  * @default jpeg
- * 
+ *
  * @option .PNG
  * @value png
- * 
+ *
  * @option .JPEG
  * @value jpeg
- * 
+ *
  * @param JpegQuality
  * @parent WhenUseImage
  * @text JPEG圧縮率(1-100)
@@ -333,43 +333,43 @@
  * @default 50
  * @min 1
  * @max 100
- * 
+ *
  * @param SetMonochrome
  * @parent WhenUseImage
  * @text スクショをモノクロに
  * @desc モノクロにすることで容量軽量化を図ります。効果は薄いです。
  * @type boolean
  * @default false
- * 
+ *
  * @param Windows
  * @text ウィンドウ関連
- * 
+ *
  * @param HelpWindow
  * @parent Windows
  * @type struct<Window>
  * @default {"point":"{\"x\":\"0\",\"y\":\"0\"}","surface":"{\"width\":\"660\",\"height\":\"72\"}","windowType":"0"}
- * 
+ *
  * @param InfoWindow
  * @parent Windows
  * @type struct<Window>
  * @default {"point":"{\"x\":\"0\",\"y\":\"432\"}","surface":"{\"width\":\"816\",\"height\":\"192\"}","windowType":"0"}
- * 
+ *
  * @help
  * このプラグインはマテコモ青ライセンスの下で提供されます。
  * 利用規約はこちら。
  * https://kanjinokusargss3.hatenablog.com/entry/2020/08/12/184854
- * 
+ *
  * セーブ時に保存されたスクリーンショットの画像が
  * セーブ画面でぐるぐる回ります。
- * 
+ *
  * アツマールなどのセーブファイルの容量が限られている環境では
  * スクリーンショットの画質をできるだけ落とすことをお勧めします。
- * 
+ *
  * ※サンプルで提供されているKnsSave_HasData.png、KnsSave_NoData.pngには
  * 　Open Font Licenseで提供されたフォント『Anton』が使用されています。
  * 　それらの画像を改変しないでそのまま使う場合はそちらをご一読ください。
  * フォント公開ページ：https://fonts.google.com/specimen/Anton
- * 
+ *
  * 【更新履歴】
  * ver.1.0.0(2022/02/19)
  * - 公開
@@ -384,16 +384,16 @@
  * @param point
  * @text 座標
  * @type struct<Point>
- * 
+ *
  * @param surface
  * @text サイズ
  * @type struct<Surface>
- * 
+ *
  * @param windowType
  * @text ウィンドウ背景
  * @type select
  * @default 1
- * 
+ *
  * @option ウィンドウ
  * @value 0
  * @option 暗くする
@@ -406,7 +406,7 @@
  * @text X座標
  * @type number
  * @default 0
- * 
+ *
  * @param y
  * @text Y座標
  * @type number
@@ -419,7 +419,7 @@
  * @type number
  * @default 1
  * @min 1
- * 
+ *
  * @param height
  * @text 縦幅
  * @desc 縦幅を数値で指定します
@@ -430,8 +430,8 @@
 
 const KNSMZ_Save = {};
 (function () {
-	'use strict';
-	const param = PluginManager.parameters('KNSMZ_Save');
+	"use strict";
+	const param = PluginManager.parameters("KNSMZ_Save");
 	KNSMZ_Save.MaxSaveFile = Number(param.MaxSaveFile || 25);
 
 	KNSMZ_Save.VocabPrice = String(param.VocabPrice);
@@ -442,11 +442,11 @@ const KNSMZ_Save = {};
 	KNSMZ_Save.ImageSaveSize = JsonEx.parse(param.ImageSaveSize) || {};
 	KNSMZ_Save.RadiusSize = JsonEx.parse(param.RadiusSize) || {};
 
-	KNSMZ_Save.UseScreenshot = param.UseScreenshot === 'true';
+	KNSMZ_Save.UseScreenshot = param.UseScreenshot === "true";
 	// ss settings
 	KNSMZ_Save.ImageType = String(param.ImageType);
 	KNSMZ_Save.JpegQuality = Number(param.JpegQuality || 1) / 100;
-	KNSMZ_Save.SetMonochrome = param.SetMonochrome === 'true';
+	KNSMZ_Save.SetMonochrome = param.SetMonochrome === "true";
 	// img
 	KNSMZ_Save.ImageExists = String(param.ImageExists);
 	KNSMZ_Save.NoImageExists = String(param.NoImageExists);
@@ -460,20 +460,23 @@ const KNSMZ_Save = {};
 		const point = JsonEx.parse(obj.point) || {};
 		const surface = JsonEx.parse(obj.surface) || {};
 		obj.rect = new Rectangle(
-			Number(point.x || 0), Number(point.y || 0),
-			Number(surface.width || 0), Number(surface.height || 0)
+			Number(point.x || 0),
+			Number(point.y || 0),
+			Number(surface.width || 0),
+			Number(surface.height || 0),
 		);
-		obj.windowType = Number(obj.windowType || '0');
+		obj.windowType = Number(obj.windowType || "0");
 		return obj;
-	}
+	};
 	KNSMZ_Save.HelpWindow = KNSMZ_Save.parseWindow(param.HelpWindow);
 	KNSMZ_Save.InfoWindow = KNSMZ_Save.parseWindow(param.InfoWindow);
-
 
 	//======================================================
 	// alias DataManager
 	//======================================================
-	DataManager.maxSavefiles = function () { return KNSMZ_Save.MaxSaveFile; };
+	DataManager.maxSavefiles = function () {
+		return KNSMZ_Save.MaxSaveFile;
+	};
 
 	const _makeSavefileInfo = DataManager.makeSavefileInfo;
 
@@ -481,18 +484,26 @@ const KNSMZ_Save = {};
 		const info = _makeSavefileInfo.apply(this, arguments);
 
 		if ($lastScreenshot) {
-			info.snapUrl = $lastScreenshot._canvas.toDataURL('image/' + KNSMZ_Save.ImageType, KNSMZ_Save.JpegQuality);
+			info.snapUrl = $lastScreenshot._canvas.toDataURL(
+				"image/" + KNSMZ_Save.ImageType,
+				KNSMZ_Save.JpegQuality,
+			);
 			//alert(info.snapUrl)
 		}
 		info.gold = $gameParty.gold();
-		info.place = $dataMap ? $dataMap.displayName : '';
-		if (v(401) > 0) info.place = (s(81) ? "[快速]" : "") + "第" + "零一二三四五六七八".charAt(v(401)) + "区域"
-		if (v(361) > 0) info.place = "无尽模式:" + v(361) + "层"
+		info.place = $dataMap ? $dataMap.displayName : "";
+		if (v(401) > 0)
+			info.place =
+				(s(81) ? "[快速]" : "") +
+				"第" +
+				"零一二三四五六七八".charAt(v(401)) +
+				"区域";
+		if (v(361) > 0) info.place = "无尽模式:" + v(361) + "层";
 		return info;
 	};
 
 	DataManager.makeScreenshot = function () {
-		console.log("screen shot")
+		console.log("screen shot");
 		SceneManager.snapForBackground();
 		const oldBmp = SceneManager.backgroundBitmap();
 		if (!oldBmp || KNSMZ_Save.UseScreenshot === false) {
@@ -505,8 +516,8 @@ const KNSMZ_Save = {};
 		newBmp.blt(oldBmp, 0, 0, oldBmp.width, oldBmp.height, 0, 0, width, height);
 		if (KNSMZ_Save.SetMonochrome === true) {
 			newBmp._context.save();
-			newBmp._context.globalCompositeOperation = 'color';
-			newBmp._context.fillStyle = 'black';
+			newBmp._context.globalCompositeOperation = "color";
+			newBmp._context.fillStyle = "black";
 			newBmp._context.fillRect(0, 0, width, height);
 			newBmp._context.restore();
 		}
@@ -521,10 +532,12 @@ const KNSMZ_Save = {};
 			if (!this._loadedImg) {
 				if (this._globalInfo) {
 					this._loadedImg = hasData;
-					if (this._globalInfo.snapUrl&&!Utils.isMobileDevice()) {
+					if (this._globalInfo.snapUrl && !Utils.isMobileDevice()) {
 						try {
-							console.log(this._globalInfo.snapUrl)
-							//this._loadedImg = ImageManager.loadBitmapFromUrl(this._globalInfo.snapUrl);
+							console.log(this._globalInfo.snapUrl);
+							this._loadedImg = ImageManager.loadBitmapFromUrl(
+								this._globalInfo.snapUrl,
+							);
 						} catch (e) {
 							console.log(e);
 						}
@@ -536,7 +549,9 @@ const KNSMZ_Save = {};
 			}
 			return this._loadedImg;
 		}
-		_knsZIndex() { return this._knsMoveInfo.ty; }
+		_knsZIndex() {
+			return this._knsMoveInfo.ty;
+		}
 		fileTitle() {
 			if (this._id === 0) {
 				return TextManager.autosave;
@@ -545,10 +560,12 @@ const KNSMZ_Save = {};
 			}
 		}
 		constructor(id, calced, noData, hasData) {
-			super(new Bitmap(
-				Number(KNSMZ_Save.ImageSize.width || 0) + 2,
-				Number(KNSMZ_Save.ImageSize.height || 0) + 2
-			));
+			super(
+				new Bitmap(
+					Number(KNSMZ_Save.ImageSize.width || 0) + 2,
+					Number(KNSMZ_Save.ImageSize.height || 0) + 2,
+				),
+			);
 			this._id = id;
 			this._globalInfo = DataManager.savefileInfo(this._id);
 			this._moveList = calced;
@@ -568,11 +585,12 @@ const KNSMZ_Save = {};
 				tx: Number(KNSMZ_Save.RadiusSize.width || 0) * Math.sin(rate),
 				ty: Number(KNSMZ_Save.RadiusSize.height || 0) * thF,
 				oldScale: this.scale.x,
-				newScale: Math.max(Math.min(thF * 1.25, 1), 0.625)
-			}
+				newScale: Math.max(Math.min(thF * 1.25, 1), 0.625),
+			};
 			this._knsMoveInfo.padX = this._knsMoveInfo.tx - this._knsMoveInfo.ox;
 			this._knsMoveInfo.padY = this._knsMoveInfo.ty - this._knsMoveInfo.oy;
-			this._knsMoveInfo.padScale = this._knsMoveInfo.newScale - this._knsMoveInfo.oldScale;
+			this._knsMoveInfo.padScale =
+				this._knsMoveInfo.newScale - this._knsMoveInfo.oldScale;
 			this.opacity = Math.max(255 * thF, -20) + 90;
 		}
 		update() {
@@ -587,8 +605,17 @@ const KNSMZ_Save = {};
 		}
 		refresh() {
 			const bmp = this.loadSS();
-			this.bitmap.blt(bmp, 0, 0, bmp.width, bmp.height,
-				1, 1, this.bitmap.width - 2, this.bitmap.height - 2);
+			this.bitmap.blt(
+				bmp,
+				0,
+				0,
+				bmp.width,
+				bmp.height,
+				1,
+				1,
+				this.bitmap.width - 2,
+				this.bitmap.height - 2,
+			);
 			//this.drawNumber();
 		}
 		drawNumber() {
@@ -600,8 +627,12 @@ const KNSMZ_Save = {};
 			// プレイ時間の描画
 			if (this._globalInfo.playtime) {
 				this.bitmap.drawText(
-					this._globalInfo.playtime, 0, this.bitmap.height - h,
-					this.bitmap.width, h, "right"
+					this._globalInfo.playtime,
+					0,
+					this.bitmap.height - h,
+					this.bitmap.width,
+					h,
+					"right",
 				);
 			}
 		}
@@ -624,7 +655,8 @@ const KNSMZ_Save = {};
 		createFiles() {
 			// move
 			const calced = new Array(8);
-			for (let i = 0; i < calced.length; i++) calced[i] = (i + 1) / calced.length;
+			for (let i = 0; i < calced.length; i++)
+				calced[i] = (i + 1) / calced.length;
 			// img
 			const hasData = ImageManager.loadSystem(KNSMZ_Save.ImageExists);
 			const noData = ImageManager.loadSystem(KNSMZ_Save.NoImageExists);
@@ -632,8 +664,12 @@ const KNSMZ_Save = {};
 			this.sortedChildren = new Array(this._listWindow.maxItems());
 			for (let i = 0; i < this.sortedChildren.length; i++) {
 				this.sortedChildren[i] = new Sprite_ScreenShot(
-					this._listWindow.indexToSavefileId(i), calced, noData, hasData);
-			};
+					this._listWindow.indexToSavefileId(i),
+					calced,
+					noData,
+					hasData,
+				);
+			}
 			this.addChild(...this.sortedChildren);
 		}
 		// update
@@ -675,21 +711,25 @@ const KNSMZ_Save = {};
 		}
 		updatePosition() {
 			// set z-axis
-			const math = Math.PI / this.sortedChildren.length * 2;
+			const math = (Math.PI / this.sortedChildren.length) * 2;
 			let index = this._listWindow.index();
-			this.sortedChildren.forEach(function (sp, i) { sp._knsMoveTo(math * (i - index)); });
+			this.sortedChildren.forEach(function (sp, i) {
+				sp._knsMoveTo(math * (i - index));
+			});
 			this.removeChildren();
-			this.addChild(...Array.from(this.sortedChildren).sort(function (a, b) {
-				return a._knsZIndex() - b._knsZIndex();
-			}));
+			this.addChild(
+				...Array.from(this.sortedChildren).sort(function (a, b) {
+					return a._knsZIndex() - b._knsZIndex();
+				}),
+			);
 		}
 		__start() {
-			this.sortedChildren.forEach(sp => sp.refresh());
+			this.sortedChildren.forEach((sp) => sp.refresh());
 			this.refreshInfoWindow();
 			this.updatePosition();
 		}
 		__terminate() {
-			this.sortedChildren.forEach(sp => sp.destroy());
+			this.sortedChildren.forEach((sp) => sp.destroy());
 			this.destroy();
 		}
 	}
@@ -704,14 +744,22 @@ const KNSMZ_Save = {};
 				return;
 			}
 			this.resetFontSettings();
-			this.contents.fillRect(0, 34, this.contents.width, 2, KNSMZ_Save.InfoHorzLineColor)
+			this.contents.fillRect(
+				0,
+				34,
+				this.contents.width,
+				2,
+				KNSMZ_Save.InfoHorzLineColor,
+			);
 			this.drawText(sp.fileTitle(), 0, 0, 200);
 			const info = sp._globalInfo;
 			if (!info) return;
 			if (info.playtime) {
 				this.drawText(info.playtime, 0, 0, this.contents.width, "right");
 			}
-			let x = 0, y = 40, w = 124;
+			let x = 0,
+				y = 40,
+				w = 124;
 			if (info.faces) {
 				info.faces.forEach(function (actor) {
 					this.drawFace(actor[0], actor[1], x, y, w);
@@ -753,7 +801,7 @@ const KNSMZ_Save = {};
 		this.knsCreateFileTouchSprite();
 		this._listWindow.y = Graphics.height;
 		Scene_File.prototype.createCancelButton.apply(this, arguments);
-	}
+	};
 
 	Scene_File.prototype.helpWindowRect = function () {
 		return KNSMZ_Save.HelpWindow.rect;
@@ -761,39 +809,45 @@ const KNSMZ_Save = {};
 	const _Scene_File_createHelpWindow = Scene_File.prototype.createHelpWindow;
 	Scene_File.prototype.createHelpWindow = function () {
 		_Scene_File_createHelpWindow.apply(this, arguments);
-		this._helpWindow.setBackgroundType(KNSMZ_Save.HelpWindow.windowType)
+		this._helpWindow.setBackgroundType(KNSMZ_Save.HelpWindow.windowType);
 	};
 	Scene_File.prototype.knsCreateFileDataWindow = function () {
 		this._infoWindow = new Window_SSStatus(KNSMZ_Save.InfoWindow.rect);
-		this._infoWindow.setBackgroundType(KNSMZ_Save.InfoWindow.windowType)
+		this._infoWindow.setBackgroundType(KNSMZ_Save.InfoWindow.windowType);
 		this.addWindow(this._infoWindow);
-	}
+	};
 	Scene_File.prototype.knsCreateScreenShots = function () {
 		this._spriteset = new Spriteset_File(this._listWindow, this._infoWindow);
-		this.addChildAt(this._spriteset, this.children.indexOf(this._backgroundSprite) + 1);
-	}
+		this.addChildAt(
+			this._spriteset,
+			this.children.indexOf(this._backgroundSprite) + 1,
+		);
+	};
 	Scene_File.prototype.knsCreateFileTouchSprite = function () {
 		if (Window_SavefileList.onlyAutoSave == 1) return;
 		const img = KNSMZ_Save.ArrowImage;
 		this._fileTouchSprite = new Sprite(img && ImageManager.loadSystem(img));
-		this.addChildAt(this._fileTouchSprite, this.children.indexOf(this._spriteset) + 1);
-	}
+		this.addChildAt(
+			this._fileTouchSprite,
+			this.children.indexOf(this._spriteset) + 1,
+		);
+	};
 	// main
 	const _Scene_File_start = Scene_File.prototype.start;
 	Scene_File.prototype.start = function () {
 		_Scene_File_start.apply(this, arguments);
 		this._spriteset.__start();
-	}
+	};
 	const _Scene_File_terminate = Scene_File.prototype.terminate;
 	Scene_File.prototype.terminate = function () {
 		_Scene_File_terminate.apply(this, arguments);
 		this._spriteset.__terminate();
-	}
+	};
 
 	//======================================================
 	// alias Window_SavefileList
 	//======================================================
-	Window_SavefileList.prototype.refresh = function () { };
+	Window_SavefileList.prototype.refresh = function () {};
 	Window_SavefileList.prototype.cursorDown = function (wrap) {
 		Window_Selectable.prototype.cursorDown.call(this, true);
 	};

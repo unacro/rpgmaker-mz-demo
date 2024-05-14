@@ -37,7 +37,7 @@ class JsonFormatter {
 	}
 
 	static uncompress(filePath) {
-		return JsonFormatter.#writeData(filePath, 2);
+		return JsonFormatter.#writeData(filePath, "\t");
 	}
 
 	static compress(filePath) {

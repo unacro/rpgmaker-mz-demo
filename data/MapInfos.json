@@ -1,12 +1,62 @@
 [
-  null,
-  {
-    "id": 1,
-    "expanded": false,
-    "name": "MAP001",
-    "order": 1,
-    "parentId": 0,
-    "scrollX": 411.55555555555554,
-    "scrollY": 320.8888888888889
-  }
+	null,
+	{
+		"id": 1,
+		"expanded": true,
+		"name": "MAP001",
+		"order": 1,
+		"parentId": 0,
+		"scrollX": 451,
+		"scrollY": 312
+	},
+	{
+		"id": 2,
+		"expanded": false,
+		"name": "MAP002",
+		"order": 2,
+		"parentId": 0,
+		"scrollX": 0,
+		"scrollY": 0,
+		"quick": false
+	},
+	{
+		"id": 3,
+		"expanded": true,
+		"name": "Rogue Map Area 1",
+		"order": 3,
+		"parentId": 0,
+		"scrollX": 550.8,
+		"scrollY": 364.8,
+		"quick": false
+	},
+	{
+		"id": 4,
+		"expanded": true,
+		"name": "Area 1 Floor 1",
+		"order": 4,
+		"parentId": 3,
+		"scrollX": 550.8,
+		"scrollY": 364.8,
+		"quick": false
+	},
+	{
+		"id": 5,
+		"expanded": true,
+		"name": "Area 1 Floor 2",
+		"order": 5,
+		"parentId": 3,
+		"scrollX": 550.8,
+		"scrollY": 364.8,
+		"quick": false
+	},
+	{
+		"id": 6,
+		"expanded": true,
+		"name": "MAP006 (Map[5]'s Copy)",
+		"order": 6,
+		"parentId": 3,
+		"scrollX": 550.8,
+		"scrollY": 364.8,
+		"quick": false
+	}
 ]

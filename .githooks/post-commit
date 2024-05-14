@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# copy this file to location `.git/hooks/post-commit`
+# or use **admin cmd** to run `mklink .\.git\hooks\post-commit [Absolute path of current project]\.githooks\post-commit`
+
+echo "Executing post-commit hook... (Make sure that you are at root of the project)"
+node ./.githooks/json_formatter.mjs minify data

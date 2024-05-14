@@ -348,7 +348,7 @@
  *
  * @param HelpWindow
  * @parent Windows
- * @text 帮助窗口
+ * @text 提示信息窗口
  * @type struct<Window>
  * @default {"point":"{\"x\":\"0\",\"y\":\"0\"}","surface":"{\"width\":\"660\",\"height\":\"72\"}","windowType":"0"}
  *
@@ -645,7 +645,8 @@
 
 const KNSMZ_Save = {};
 (() => {
-	const pluginParameters = PluginManager.parameters("KNSMZ_Save_Modified");
+	const pluginName = "KNSMZ_Save_Modified";
+	const pluginParameters = PluginManager.parameters(pluginName);
 	const pluginConfig = {};
 	pluginConfig.MaxSaveFile = Number(pluginParameters.MaxSaveFile || 25);
 
@@ -702,13 +703,21 @@ const KNSMZ_Save = {};
 	 */
 	DataManager.makeSavefileInfo = function (...args) {
 		const savefileInfo = _DataManagerMakeSavefileInfo.apply(this, ...args);
-		const bitmap = this.makeScreenshot(); // todo 改成了手动截图
+		const bitmap = this.makeScreenshot();
+		console.log("创建新截图", bitmap); // todo 改成了手动截图
 		if (bitmap) {
 			savefileInfo.snapUrl = bitmap._canvas.toDataURL(
 				`image/${KNSMZ_Save.config.ImageType}`,
 				KNSMZ_Save.config.JpegQuality,
 			);
 		}
+		// if ($lastScreenshot) {
+		// 	info.snapUrl = $lastScreenshot._canvas.toDataURL(
+		// 		`image/${KNSMZ_Save.ImageType}`,
+		// 		KNSMZ_Save.JpegQuality,
+		// 	);
+		// 	//alert(info.snapUrl)
+		// }
 		savefileInfo.gold = $gameParty.gold();
 		savefileInfo.place = $dataMap ? $dataMap.displayName : ""; // todo 适配无尽模式
 		return savefileInfo;
@@ -719,8 +728,9 @@ const KNSMZ_Save = {};
 	 * @returns
 	 */
 	DataManager.makeScreenshot = () => {
-		// todo SceneManager.snapForBackground(); // 给当前场景生成快照并保存
+		// SceneManager.snapForBackground(); // 给当前场景生成快照并保存
 		const lastSnapshot = SceneManager.backgroundBitmap(); // 获取保存的上次快照
+		console.log("保存的上次快照", lastSnapshot);
 		if (!lastSnapshot || KNSMZ_Save.config.UseScreenshot === false) {
 			return null;
 		}
@@ -745,8 +755,27 @@ const KNSMZ_Save = {};
 			newBitmap._context.fillRect(0, 0, targetWidth, targetHeight);
 			newBitmap._context.restore();
 		}
+		console.log("开始解密图像");
+		newBitmap.isSnapshot = true; // debug
 		KNSMZ_Save.cache.lastSnapshot = newBitmap;
 		return newBitmap;
+	};
+
+	Bitmap.prototype._startLoading = function () {
+		this._image = new Image();
+		this._image.onload = this._onLoad.bind(this);
+		this._image.onerror = this._onError.bind(this);
+		this._destroyCanvas();
+		this._loadingState = "loading";
+		if (Utils.hasEncryptedImages() && !this._url.startsWith("data:image/")) {
+			this._startDecrypting();
+		} else {
+			this._image.src = this._url;
+			if (this._image.width > 0) {
+				this._image.onload = null;
+				this._onLoad();
+			}
+		}
 	};
 
 	class ScreenshotSprite extends Sprite {
@@ -767,6 +796,8 @@ const KNSMZ_Save = {};
 			this.scale.x = 0;
 			this.scale.y = 0;
 			this.bitmap.fillAll(KNSMZ_Save.config.ImageBorderColor);
+
+			this.bitmap.isSnapshot = true; // debug
 			this._loadedImg = this.loadSS(noData, hasData);
 		}
 		loadSS(noData, hasData) {
